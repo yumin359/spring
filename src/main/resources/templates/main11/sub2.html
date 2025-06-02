@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> /main11/sub2 </h3>
+<form th:action="@{/main11/sub2}" method="post">
+    <!--    저거 @{} 해서 해야하는 이유? -> 쿠키 차단되었을 때를 대비해서.? 왘-->
+
+    <button>더하기 1</button>
+</form>
+<hr>
+<h3>
+    결과
+    <span th:text="${value ?: 0}">0</span>
+</h3>
+</body>
+</html>

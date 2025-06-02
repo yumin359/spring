@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>main9/sub1.html</h3>
+<a th:href="@{/main9/sub2(name='son',age=55,address='seoul')}">to /main9/sub2 </a>
+<br>
+<!--
+링크를 클릭하면 /main9/sub3?email=yahoo&married=true&city=seoul&team=paris
+로 이동하면 a 요소를 만드세요
+&
+Controller09 에 3번째 메소드를 만들어서 email, married, city, team 요청 파라미터를 받아서
+출력하는 코드를 완성하세요.
+ -->
+<a th:href="@{/main9/sub3(email='yahoo', married=true, city='seoul',team='paris')}">
+    to /main9/sub3
+</a>
+
+</body>
+</html>
