@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 산술 연산 +, -, *, /, % -->
+<h1 th:text="${person.number - 5}"></h1>
+<h1 th:text="${person.number + 5}"></h1>
+<h1 th:text="${person.number * 5}"></h1>
+<h1 th:text="${person.number / 5}"></h1>
+<h1 th:text="${person.number % 5}"></h1>
+<h1 th:text="101 + 5"></h1>
+<h1 th:text="101 / 5"></h1>
+
+
+<hr>
+<!-- number -->
+<h1 th:text="${person.number}"></h1>
+<h1 th:text="101"></h1>
+
+<!-- text 는 '' 사용 -->
+<h1 th:text="'어떤 텍스트 작성'"></h1>
+<!--<h1 th:text="어떤 텍스트 작성"></h1>-->
+
+<hr>
+<!-- bar | -->
+<h1 th:text="|회사 ${person.company[0]}|"></h1>
+<!-- 문자열 연결 -->
+<h1 th:text="'회사 ' + ${person.company[0]}"></h1>
+<h1>회사 [[${person.company[0]}]]</h1>
+<h1>회사 <span th:text="${person.company[0]}"></span></h1>
+
+</body>
+</html>
