@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>수량 상위 5개 조회</h3>
+<ul>
+    <li th:each="quantity: ${quantityList}">
+        <span th:text="${quantity}"></span> 개
+    </li>
+</ul>
+</body>
+</html>

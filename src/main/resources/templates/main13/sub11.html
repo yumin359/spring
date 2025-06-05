@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td, th {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h3>모든 고객 정보</h3>
+<!--table>thead>tr>th*7^^tbody>tr>td*7-->
+<table>
+    <thead>
+    <tr>
+        <th>CustomerID</th>
+        <th>CustomerName</th>
+        <th>ContactName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PostalCode</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customerList : ${customerList}">
+        <td th:text="${customerList.customerID}"></td>
+        <td th:text="${customerList.customerName}"></td>
+        <td th:text="${customerList.contactName}"></td>
+        <td th:text="${customerList.address}"></td>
+        <td th:text="${customerList.city}"></td>
+        <td th:text="${customerList.postalCode}"></td>
+        <td th:text="${customerList.country}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

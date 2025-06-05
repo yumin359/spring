@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td, th {
+            border: 1px solid blueviolet;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>상품 목록</h3>
+<hr>
+<form th:action="@{/main13/sub18}">
+    <div>
+        <label>
+            최소 가격 입력
+            <input type="number" name="p1" min="0" step="0.01"
+                   th:value="${param.p1 ?: 0}">
+        </label>
+    </div>
+    <div>
+        <label>
+            최대 가격 입력
+            <input type="number" name="p2" min="0" step="0.01"
+                   th:value="${param.p2 ?: 20.00}">
+        </label>
+    </div>
+    <div>
+        <button>조회</button>
+    </div>
+</form>
+<hr>
+<p th:if="${productList==null || productList.isEmpty()}">
+    조회 결과가 없습니다.
+</p>
+<table th:if="${productList.size()>0}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>PRODUCT NAME</th>
+        <th>SUPPLIER ID</th>
+        <th>CATEGORY ID</th>
+        <th>UNIT</th>
+        <th>PRICE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="productList : ${productList}">
+        <td th:text="${productList['id']}"></td>
+        <td th:text="${productList['name']}"></td>
+        <td th:text="${productList['supplierId']}"></td>
+        <td th:text="${productList['categoryId']}"></td>
+        <td th:text="${productList['unit']}"></td>
+        <td th:text="${productList['price']}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
