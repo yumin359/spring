@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid cornflowerblue;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>고객 이름 조회 (w/ page)</h3>
+
+<hr>
+<form th:action="@{/main15/sub3}">
+    <label>
+        이름
+        <input type="text" name="keyword" th:value="${param.keyword ?: ''}">
+    </label>
+    <button>검색</button>
+</form>
+<hr>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CustomerName</th>
+        <th>ContactName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PostalCode</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c: ${customerList}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.contactName}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.city}"></td>
+        <td th:text="${c.postalCode}"></td>
+        <td th:text="${c.country}"></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!-- 이전 버튼 -->
+    <span th:if="${prevPage > 0}">
+        <a th:if="${param.keyword == null}"
+           th:href="@{/main15/sub3(page=${prevPage})}">
+            이전
+        </a>
+        <a th:if="${param.keyword != null}"
+           th:href="@{/main15/sub3(page=${prevPage}, keyword=${param.keyword})}">
+            이전
+        </a>
+        |
+    </span>
+    <!-- 페이지 번호들 -->
+    <span th:each="num : ${#numbers.sequence(leftPage,rightPage)}">
+        <a th:if="${param.keyword == null}"
+           th:href="@{/main15/sub3(page=${num})}"
+           th:text="${num}"></a>
+        <a th:if="${param.keyword != null}"
+           th:href="@{/main15/sub3(page=${num}, keyword=${param.keyword})}"
+           th:text="${num}"></a>
+        |
+    </span>
+    <!-- 다음 버튼 -->
+    <span th:if="${nextPage <= lastPage}">
+        <a th:if="${param.keyword == null}"
+           th:href="@{/main15/sub3(page=${nextPage})}">
+            다음
+        </a>
+        <a th:if="${param.keyword != null}"
+           th:href="@{/main15/sub3(page=${nextPage}, keyword=${param.keyword})}">
+            다음
+        </a>
+        |
+    </span>
+</div>
+
+</body>
+</html>

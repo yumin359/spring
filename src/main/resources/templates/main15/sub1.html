@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid blueviolet;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>페이지별 고객 조회</h3>
+<hr>
+<!--<form th:action="@{/main15/sub1}">-->
+<!--    <label>-->
+<!--        이름-->
+<!--        <input type="text" name="keyword" th:value="${param.keyword ?: ''}">-->
+<!--    </label>-->
+<!--    <button>조회</button>-->
+<!--</form>-->
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CustomerName</th>
+        <th>ContactName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PostalCode</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c: ${customerList}">
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.contactName}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.city}"></td>
+        <td th:text="${c.postalCode}"></td>
+        <td th:text="${c.country}"></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <span th:each="num : ${#numbers.sequence(1,lastPage)}">
+        <a th:href="@{/main15/sub1(page=${num})}"
+           th:text="${num}"></a>
+        |
+    </span>
+</div>
+<!--
+<div>
+    <a th:href="@{/main15/sub1(page=1)}">1</a> |
+    <a th:href="@{/main15/sub1(page=2)}">2</a> |
+    <a th:href="@{/main15/sub1(page=3)}">3</a> |
+    <a th:href="@{/main15/sub1(page=4)}">4</a> |
+    <a th:href="@{/main15/sub1(page=5)}">5</a>
+</div>
+-->
+</body>
+</html>
