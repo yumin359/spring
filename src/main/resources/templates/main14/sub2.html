@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>고객명 조회</h3>
+<hr>
+<!-- 검색어를 입력받는 폼(GET 방식으로 /main14/sub2에 요청) -->
+<form th:action="@{/main14/sub2}">
+    <label>
+        이름
+        <!-- 검색어(keyword)를 입력받는 input 필드 -->
+        <!-- 이전 검색어가 있으면 유지, 없으면 공백으로 표시 -->
+        <input type="text" name="keyword" th:value="${param.keyword ?: ''}">
+    </label>
+    <button>조회</button>
+</form>
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CustomerName</th>
+        <th>ContactName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PostalCode</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- customerList에 있는 각 고객 객체를 반복 출력 -->
+    <tr th:each="c: ${customerList}">
+        <!-- 각 고객 정보 출력 -->
+        <!-- java 코드 보면 알겠지만 얘네 클래스에서 선언한 변수명 가져온 것. -->
+        <!-- java 코드에서 클래스를 사용했으니까! 당연 ,,  -->
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.contactName}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.city}"></td>
+        <td th:text="${c.postalCode}"></td>
+        <td th:text="${c.country}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
