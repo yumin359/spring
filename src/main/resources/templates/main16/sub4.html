@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>공급자 조회 후 삭제</h3>
+
+<hr>
+<form th:action="@{/main16/sub4}">
+    <label>
+        ID
+        <input type="number" name="id" th:value="${param.id}">
+    </label>
+    <button>조회</button>
+</form>
+<hr>
+<div th:if="${supplierDto == null}">
+    조회된 결과가 없습니다.
+</div>
+<div th:if="${supplierDto != null}" th:object="${supplierDto}">
+    <!--div*8>label>input[readonly th:value]-->
+    <div><label>ID <input type="text" readonly th:value="*{id}"></label></div>
+    <div><label>NAME <input type="text" readonly th:value="*{name}"></label></div>
+    <div><label>Contact <input type="text" readonly th:value="*{contact}"></label></div>
+    <div><label>Address <input type="text" readonly th:value="*{address}"></label></div>
+    <div><label>City <input type="text" readonly th:value="*{city}"></label></div>
+    <div><label>Postal <input type="text" readonly th:value="*{postalCode}"></label></div>
+    <div><label>Country <input type="text" readonly th:value="*{country}"></label></div>
+    <div><label>Phone <input type="text" readonly th:value="*{phone}"></label></div>
+
+    <form th:action="@{/main16/sub4}" method="post">
+        <input type="hidden" name="id" th:value="${supplierDto.id}">
+        <button>삭제</button>
+    </form>
+</div>
+
+</body>
+</html>
