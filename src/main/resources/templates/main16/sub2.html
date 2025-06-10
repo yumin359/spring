@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td, th {
+            border-collapse: collapse;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+
+<h3>새 공급자 입력</h3>
+<hr>
+<form th:action="@{/main16/sub2}" method="post">
+    <!--div*7>label>input[name]-->
+    <div><label>공급자명 <input type="text" name="name"></label></div>
+    <div><label>게약명 <input type="text" name="contact"></label></div>
+    <div><label>주소 <input type="text" name="address"></label></div>
+    <div><label>도시 <input type="text" name="city"></label></div>
+    <div><label>국가번호 <input type="text" name="postalCode"></label></div>
+    <div><label>국가 <input type="text" name="country"></label></div>
+    <div><label>전화번호 <input type="text" name="phone"></label></div>
+
+    <div>
+        <button>등록</button>
+    </div>
+</form>
+<hr>
+<table th:if="${supplierDtoList.size()>0}">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>SNAME</th>
+        <th>CNAME</th>
+        <th>ADD</th>
+        <th>CITY</th>
+        <th>POSTAL</th>
+        <th>COUNTRY</th>
+        <th>PHONE</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="s:${supplierDtoList}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.contact}"></td>
+        <td th:text="${s.address}"></td>
+        <td th:text="${s.city}"></td>
+        <td th:text="${s.postalCode}"></td>
+        <td th:text="${s.country}"></td>
+        <td th:text="${s.phone}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

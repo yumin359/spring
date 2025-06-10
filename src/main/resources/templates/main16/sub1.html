@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h3>새 고객 정보 입력</h3>
+
+<hr>
+<form th:action="@{/main16/sub1}" method="post">
+    <!--    label*6>input-->
+    <div>
+        <label>
+            고객명
+            <input type="text" name="name">
+        </label>
+    </div>
+    <div>
+        <label>
+            계약명
+            <input type="text" name="contactName">
+        </label>
+    </div>
+    <div>
+        <label>
+            주소
+            <input type="text" name="address">
+        </label>
+    </div>
+    <div>
+        <label>
+            도시
+            <input type="text" name="city">
+        </label>
+    </div>
+    <div>
+        <label>
+            국가번호
+            <input type="text" name="postalCode">
+        </label>
+    </div>
+    <div>
+        <label>
+            국가
+            <input type="text" name="country">
+        </label>
+    </div>
+
+    <div>
+        <button>등록</button>
+    </div>
+
+</form>
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>CustomerName</th>
+        <th>ContactName</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>PostalCode</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- customerList에 있는 각 고객 객체를 반복 출력 -->
+    <tr th:each="c: ${customerDtoList}">
+        <!-- 각 고객 정보 출력 -->
+        <td th:text="${c.id}"></td>
+        <td th:text="${c.name}"></td>
+        <td th:text="${c.contactName}"></td>
+        <td th:text="${c.address}"></td>
+        <td th:text="${c.city}"></td>
+        <td th:text="${c.postalCode}"></td>
+        <td th:text="${c.country}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
