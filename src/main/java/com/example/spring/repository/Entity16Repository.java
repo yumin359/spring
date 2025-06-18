@@ -1,7 +1,10 @@
 package com.example.spring.repository;
 
 import com.example.spring.entity.Entity16;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -89,4 +92,21 @@ public interface Entity16Repository extends JpaRepository<Entity16, Integer> {
     // sql, jpql 안 써도 됨
     // SELECT * FROM customer WHERE city = :city
     List<Entity16> findByCity(String city);
+
+    // 같은 이름의 메소드인데 리턴타입이랑 파라미터가 다름
+    Page<Entity16> findByCountry(String country, PageRequest pageRequest);
+
+    Page<Entity16> findByCustomerNameContainsOrContactNameContains(String k1, String k2, PageRequest pageRequest);
+    // PageRequest나 Pageable 이나 상관 없음
+
+    void deleteByCountry(String country);
+
+
+    @Modifying // update, delete, insert 에 붙이는 어노테이션
+    @Query(value = """
+            DELETE FROM Entity16 e 
+            WHERE e.country = :country
+            """)
+    void bulkDeleteByCountry(String country);
+
 }

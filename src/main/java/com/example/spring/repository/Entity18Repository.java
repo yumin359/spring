@@ -2,6 +2,8 @@ package com.example.spring.repository;
 
 import com.example.spring.entity.Entity18;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -44,4 +46,13 @@ public interface Entity18Repository extends JpaRepository<Entity18, Integer> {
     List<Entity18> findBySupplierNameContainingOrderBySupplierNameDesc(String keyword);
 
 
+    void deleteByCountry(String country);
+
+
+    @Modifying
+    @Query(value = """
+            DELETE FROM Entity18 a 
+            WHERE a.country = :country
+            """)
+    void totaldelete(String country);
 }
