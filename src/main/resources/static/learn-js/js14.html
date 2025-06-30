@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // destructuring assignment : (구조)분해 할당
+
+    const a = [10, 30, 50];
+    const b = a[0];
+    const c = a[1];
+    const d = a[2];
+
+    console.log(b, c, d); // 10, 30, 50
+
+    const [e, f, g] = a;
+    console.log(e); // 10
+    console.log(f); // 30
+    console.log(g); // 50
+
+    // 연습
+    const h = ["java", "boot", "react"];
+    // 적절한 코드 작성(분해 할당)
+    const [i, j, k] = h;
+    console.log(i, j, k); // java boot react
+
+    const [l, m] = h;
+    console.log(l, m); // java boot
+
+    // destructuring assignment : (구조)분해 할당
+    // 객체
+    const n = {
+        name: "park",
+        address: "강남",
+        city: "서울",
+        country: "한국"
+    };
+    const name = n.name;
+    const address = n.address;
+    console.log(name);
+    console.log(address);
+
+    // 분해 할당
+    const {city, country} = n;
+    console.log(city);
+    console.log(country);
+
+    // const {name, address} = n;
+    // name 이라는 변수가 이미 사용되기 때문에 안 됩니도
+    // console.log(name);
+    // console.log(address);
+
+    // 객체의 속성명이랑 같아야 하나봄 안 된다 수 같게 해도
+    // const {a, b, c, d} = n;
+    // console.log(a, b, c, d);
+
+    // 연습
+    const o = {score: 99.11, nick: "trump", skill: "java"}
+    // 분해 할당 코드 작성
+    const {score, nick, skill} = o;
+    console.log(score); // 99.11
+    console.log(nick); // trump
+    console.log(skill); // java
+
+
+</script>
+
+</body>
+</html>
