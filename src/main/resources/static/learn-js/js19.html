@@ -20,6 +20,7 @@
     console.log("code 8");
 
     // promise에서 오류가 났을 때는 catch 실행
+    // 무조건 거절이라 "에러" 뜸
     new Promise((resolve, reject) => {
         setTimeout(() => {
             reject(100)
