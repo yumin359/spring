@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // spread 로 객체, 배열 복사
+    // 얕은 복사
+    const a = [4, 2, 1];
+    const b = [...a];
+    b[0] = 44;
+    console.log(b);
+    console.log(a);
+
+    // 문제 있는 코드
+    const c = [[2, 3], [0, 1], [5, 6]];
+    const d = [...c];
+    d[0][0] = 22;
+    console.log(d);
+    console.log(c);
+
+    // 깊은 복사
+    // spread // 잘 안 씀
+    const e = [[...c[0]], [...c[1]], [...c[2]]];
+    e[0][0] = 222;
+    console.log(e);
+    console.log(c);
+
+    // for // 잘 안 씀
+    const f = [];
+    for (const item of c) {
+        f.push([...item]);
+    }
+    f[0][0] = -222;
+    console.log(f);
+    console.log(c);
+
+    // JSON 으로 바꾸고 -> 객체(배열)로 파싱
+    // 자주 보임. 강사님이랑은 잘 안 쓴대여
+    const g = JSON.parse(JSON.stringify(c));
+    g[0][0] = -333;
+    console.log(g);
+    console.log(c);
+
+    // structuredClone() : 깊은 복사 해주는 메소드
+    // 자주 안 보임 (brand new, 신상)
+    // 곧 자주 쓰이게 될 예정
+    // 우리는 이 함수를 주로 사용할 예정
+    const h = structuredClone(c);
+    h[0][0] = -555;
+    console.log(h);
+    console.log(c);
+
+    // 연습 : structuredClone
+    const i = [[9, 1], ["spring", "css"], "java"];
+    const j = structuredClone(i);
+    console.log(j); // [[9, 1], ["spring", "css"], "java"]
+
+    j[1][0] = "boot";
+    console.log(j);
+    console.log(i);
+
+</script>
+</body>
+</html>
