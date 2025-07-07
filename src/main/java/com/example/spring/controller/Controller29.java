@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -47,4 +48,88 @@ public class Controller29 {
         return null;
     }
 
+    @PostMapping("sub6")
+    public String sub6(@RequestBody Map<String, Object> map) {
+        // Key는 스트링 고정이고, 값들은 달라지니까 저렇게 받아옴
+        Object val1 = map.get("val1"); // "신촌" string
+        Object val2 = map.get("val2"); // 66, number
+        Object val3 = map.get("val3"); // 77.12 number
+        Object val4 = map.get("val4"); // true boolean
+        Object val5 = map.get("val5"); // null null
+
+        System.out.println("val1 = " + val1.getClass().getSimpleName()); // String
+        System.out.println("val2 = " + val2.getClass().getSimpleName()); // Integer
+        System.out.println("val3 = " + val3.getClass().getSimpleName()); // Double
+        System.out.println("val4 = " + val4.getClass().getSimpleName()); // Boolean
+        System.out.println("val5 = " + val5); // null
+
+        return null;
+    }
+
+    @PostMapping("sub7")
+    public String sub7(@RequestBody Map<String, Object> map) {
+        Object address = map.get("address");
+        Object score = map.get("score");
+        Object age = map.get("age");
+        Object married = map.get("married");
+
+        System.out.println(address.getClass().getSimpleName()); // String
+        System.out.println(score.getClass().getSimpleName()); // Double
+        System.out.println(age.getClass().getSimpleName()); // Integer
+        System.out.println(married.getClass().getSimpleName()); // Boolean
+
+        return null;
+    }
+
+    @PostMapping("sub8")
+    public String sub8(@RequestBody Map<String, Object> map) {
+        Object address = map.get("address");
+        Object age = map.get("age");
+        Object fruits = map.get("fruits");
+
+        // JSON의 array의 타입은 JAVA의 ArrayList로 파싱됨
+        System.out.println(fruits.getClass().getSimpleName()); // ArrayList
+        System.out.println("fruits = " + fruits);
+
+        return null;
+    }
+
+    @PostMapping("sub9")
+    public String sub9(@RequestBody Map<String, Object> map) {
+        Object name = map.get("name");
+        Object teams = map.get("teams"); // ArrayLisk
+        Object person = map.get("person"); // object -> Map으로 파싱
+
+        System.out.println(person.getClass().getSimpleName());
+        System.out.println(person);
+        return null;
+    }
+
+    @PostMapping("sub10")
+    public String sub10(@RequestBody Map<String, Object> map) {
+        Object cityList = map.get("cityList");
+        Object team = map.get("team");
+
+        System.out.println(cityList.getClass().getSimpleName());
+        System.out.println(team.getClass().getSimpleName());
+
+        System.out.println(cityList);
+        System.out.println(team);
+
+        return null;
+    }
+
+    @PostMapping("sub11")
+    public String sub11(@RequestBody List<Object> data) {
+        System.out.println(data);
+        return null;
+    }
+
+    @PostMapping("sub12")
+    public String sub12(@RequestBody List<Map<String, Object>> data) {
+        for (Map<String, Object> map : data) {
+            System.out.println(map);
+        }
+        return null;
+    }
 }
