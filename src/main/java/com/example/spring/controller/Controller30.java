@@ -4,6 +4,8 @@ import com.example.spring.dto.MyBean291;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Controller
 @ResponseBody
 @RequestMapping("/api/main30")
@@ -39,6 +41,13 @@ public class Controller30 {
     @PutMapping("sub5")
     public String sub5(@RequestBody MyBean291 dto) {
         System.out.println(dto);
+        return null;
+    }
+
+    @DeleteMapping("sub6")
+    public String sub6(String name, Integer id) {
+        System.out.println("name = " + name);
+        System.out.println("id = " + id);
         return null;
     }
 }
