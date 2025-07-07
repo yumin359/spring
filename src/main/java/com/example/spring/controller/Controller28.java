@@ -91,4 +91,26 @@ public class Controller28 {
         System.out.println();
         return null;
     }
+
+    @GetMapping("sub13")
+    public String sub13(String name, Integer age, String address) {
+        System.out.println("name = " + name);
+        System.out.println("age = " + age);
+        System.out.println("address = " + address);
+        System.out.println();
+        return null;
+    }
+
+    // 연습: react 에서 14번 째 버튼 만들고 클릭, 아래 메소드가 일하도록
+    // URLSearchParams 객체 활용
+    @GetMapping("sub14")
+    public String sub14(String city,
+                        String country,
+                        Integer id) {
+        System.out.println("city = " + city);
+        System.out.println("country = " + country);
+        System.out.println("id = " + id);
+        System.out.println();
+        return null;
+    }
 }
