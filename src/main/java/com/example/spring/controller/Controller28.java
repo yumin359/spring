@@ -65,4 +65,30 @@ public class Controller28 {
         System.out.println();
         return null;
     }
+
+    @GetMapping("sub10")
+    public String sub10(String address, Double score) {
+        System.out.println("address = " + address);
+        System.out.println("score = " + score);
+        System.out.println();
+        return null;
+    }
+
+    @GetMapping("sub11")
+    public String sub11(String address, Double score) {
+        System.out.println("address = " + address);
+        System.out.println("score = " + score);
+        System.out.println();
+        return null;
+    }
+
+    // 연습: 아래 메소드가 일하도록 react에 12번때 버튼 만들고 클릭
+    // config.params 활용
+    @GetMapping("sub12")
+    public String sub12(String fruit, Integer price) {
+        System.out.println("fruit = " + fruit);
+        System.out.println("price = " + price);
+        System.out.println();
+        return null;
+    }
 }
