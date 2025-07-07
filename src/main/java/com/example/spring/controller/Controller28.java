@@ -4,9 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/api/main28")
 @Controller
+@ResponseBody
 public class Controller28 {
 
     @GetMapping("sub1")
@@ -20,6 +22,18 @@ public class Controller28 {
     public String sub2() {
         System.out.println("Controller28.sub2");
 
+        return null;
+    }
+
+    @GetMapping("sub3")
+    public String sub3() {
+        System.out.println("Controller28.sub3");
+        return null;
+    }
+
+    @PostMapping("sub4")
+    public String sub4() {
+        System.out.println("Controller28.sub4");
         return null;
     }
 }
