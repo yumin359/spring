@@ -3,6 +3,7 @@ package com.example.spring.controller;
 import com.example.spring.dto.MyBean291;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -48,6 +49,17 @@ public class Controller30 {
     public String sub6(String name, Integer id) {
         System.out.println("name = " + name);
         System.out.println("id = " + id);
+        return null;
+    }
+
+    @PostMapping("sub7")
+    public String sub7(String name,
+                       Integer age,
+                       MultipartFile myFile) {
+        System.out.println("name = " + name);
+        System.out.println("age = " + age);
+        System.out.println("myFile = " + myFile.getOriginalFilename());
+        System.out.println("myFile.getSize() = " + myFile.getSize());
         return null;
     }
 }
