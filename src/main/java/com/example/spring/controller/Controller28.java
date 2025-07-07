@@ -36,4 +36,16 @@ public class Controller28 {
         System.out.println("Controller28.sub4");
         return null;
     }
+
+    @GetMapping("sub6")
+    public String sub6() {
+        System.out.println("Controller28.sub6");
+        return null;
+    }
+    
+    @GetMapping("sub7")
+    public String sub7() {
+        System.out.println("Controller28.sub7");
+        return null;
+    }
 }
