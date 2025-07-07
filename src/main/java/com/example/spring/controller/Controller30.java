@@ -1,5 +1,6 @@
 package com.example.spring.controller;
 
+import com.example.spring.dto.MyBean291;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,13 @@ public class Controller30 {
     @DeleteMapping("sub4")
     public String sub4() {
         System.out.println("Controller30.sub4");
+        return null;
+    }
+
+    // 연습: 5번 클릭시 아래 메소드가 일하도록 react 코드 완성
+    @PutMapping("sub5")
+    public String sub5(@RequestBody MyBean291 dto) {
+        System.out.println(dto);
         return null;
     }
 }
