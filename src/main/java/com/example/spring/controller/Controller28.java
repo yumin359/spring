@@ -134,4 +134,29 @@ public class Controller28 {
         System.out.println();
         return null;
     }
+
+    @GetMapping({"sub17", "sub18", "sub19", "sub20"})
+    public String sub17(String name, Integer age, String city) {
+        System.out.println("name = " + name);
+        System.out.println("age = " + age);
+        System.out.println("city = " + city);
+        System.out.println();
+        return null;
+    }
+
+    // 연습 : react 4개의 버튼과 input 3개, useState*3를 작성해서
+    // 각 버튼 클릭 시 아래 메소드가 일할 수 있도록 코드 작성
+    // sub21 : 쿼리스트링 직접 작성
+    // sub22 : URLSearchParams 객체를 url에 연결 연산으로 붙이기
+    // sub23 : config.params 값을 URLSearchParams로 주기
+    // sub24 : config.params 값을 객체로 주기
+    @GetMapping({"sub21", "sub22", "sub23", "sub24"})
+    public String sub21(String fruit, Integer price, String location) {
+        System.out.println("fruit = " + fruit);
+        System.out.println("price = " + price);
+        System.out.println("location = " + location);
+        System.out.println();
+        return null;
+    }
+
 }
