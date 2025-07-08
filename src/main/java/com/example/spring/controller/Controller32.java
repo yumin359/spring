@@ -186,6 +186,16 @@ public class Controller32 {
                 List.of("apple", "lemon", "mango")
         );
     }
-    
 
+    @GetMapping("sub23")
+    @ResponseBody
+    public ResponseEntity<List<String>> sub23() {
+        if (Math.random() < (1.0 / 3)) {
+            return ResponseEntity.status(400).build();
+        } else if (Math.random() < (2.0 / 3)) {
+            return ResponseEntity.status(500).build();
+        } else {
+            return ResponseEntity.status(200).build();
+        }
+    }
 }
