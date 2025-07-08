@@ -106,4 +106,25 @@ public class Controller32 {
     public ResponseEntity sub11() {
         return ResponseEntity.status(500).build();
     }
+
+    @GetMapping("sub12")
+    @ResponseBody
+    public ResponseEntity sub12() {
+        // 200
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("sub13")
+    @ResponseBody
+    public ResponseEntity sub13() {
+        // 400
+        return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("sub14")
+    @ResponseBody
+    public ResponseEntity sub14() {
+        // 404
+        return ResponseEntity.notFound().build();
+    }
 }
