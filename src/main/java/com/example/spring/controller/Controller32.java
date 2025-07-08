@@ -2,6 +2,7 @@ package com.example.spring.controller;
 
 import com.example.spring.dto.MyBean321;
 import com.example.spring.dto.MyBean322;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,5 +86,24 @@ public class Controller32 {
         myBean322.setOrders(List.of("교보", "알라딘"));
         myBean322.setPrice(9000.00);
         return myBean322;
+    }
+
+    // ResponseEntity : 상태코드(response status code)를 설정해서 응답 가능한 객체
+    @GetMapping("sub9")
+    @ResponseBody
+    public ResponseEntity sub9() {
+        return ResponseEntity.status(200).build();
+    }
+
+    @GetMapping("sub10")
+    @ResponseBody
+    public ResponseEntity sub10() {
+        return ResponseEntity.status(404).build();
+    }
+
+    @GetMapping("sub11")
+    @ResponseBody
+    public ResponseEntity sub11() {
+        return ResponseEntity.status(500).build();
     }
 }
