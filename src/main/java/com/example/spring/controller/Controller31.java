@@ -3,10 +3,7 @@ package com.example.spring.controller;
 import com.example.spring.dto.MyBean311;
 import com.example.spring.dto.MyBean312;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -88,6 +85,23 @@ public class Controller31 {
                 System.out.println("file.getSize() = " + file.getSize());
             }
         }
+        return null;
+    }
+
+
+    @GetMapping("sub6/{city}")
+    public String sub6(@PathVariable String city) {
+        System.out.println("city = " + city);
+        System.out.println("Controller31.sub6");
+        return null;
+    }
+
+    // 연습 : react에서 get /api/main31/sub7/33 로 요청 보내는 버튼 만들기
+    // 연습 : react에서 get /api/main31/sub7/66 로 요청 보내는 버튼 만들기
+    // 연습 : react에서 get /api/main31/sub7/99 로 요청 보내는 버튼 만들기
+    @GetMapping("sub7/{id}")
+    public String sub7(@PathVariable Integer id) {
+        System.out.println("id = " + id);
         return null;
     }
 }
