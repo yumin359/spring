@@ -1,10 +1,13 @@
 package com.example.spring.controller;
 
+import com.example.spring.dto.MyBean321;
+import com.example.spring.dto.MyBean322;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -40,5 +43,47 @@ public class Controller32 {
     @ResponseBody
     public Map<String, Object> sub4() {
         return Map.of("city", "서울", "address", "신촌", "country", "한국");
+    }
+
+    @GetMapping("sub5")
+    @ResponseBody
+    public Map<String, Object> sub5() {
+        return Map.of("id", 55, "city", "london",
+                "phone", Map.of("phone1", "9999", "phone2", "8888"));
+    }
+
+    @GetMapping("sub6")
+    @ResponseBody
+    public Map<String, Object> sub6() {
+        return Map.of("id", 53, "name", "흥민", "address",
+                List.of("서울", "런던", "파리"));
+    }
+
+    @GetMapping("sub7")
+    @ResponseBody
+    public MyBean321 sub7() {
+        MyBean321 bean = new MyBean321();
+        bean.setId(912);
+        bean.setName("차범근");
+        bean.setFruits(List.of("apple", "lemon"));
+        bean.setAddress(Map.of("city", "신촌", "country", "한국"));
+        // json
+        // {"id": 912, "name": "차범근",
+        // "fruits": ["apple", "lemon"],
+        // "address": {"city": "신촌", "country": "한"}}
+        return bean;
+    }
+
+    // 연습 : react 에 8번째 버튼 클릭시 dto의 모든 값을 출력하는 코드 완성
+    @GetMapping("sub8")
+    @ResponseBody
+    public MyBean322 sub8() {
+        MyBean322 myBean322 = new MyBean322();
+        myBean322.setId(912);
+        myBean322.setTitle("소년이");
+        myBean322.setCategory(Map.of("author", "한강", "genre", "소설"));
+        myBean322.setOrders(List.of("교보", "알라딘"));
+        myBean322.setPrice(9000.00);
+        return myBean322;
     }
 }
