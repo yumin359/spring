@@ -42,4 +42,18 @@ public class Controller31 {
         return null;
     }
 
+    // 연습 : react 에 세번째 버튼 클릭 시 이 request handler method가 실행되도록 코드 작성
+    // multiple file 전손
+    @PostMapping("sub3")
+    public String sub3(String city,
+                       @RequestParam("uploadFiles[]") MultipartFile[] files) {
+        System.out.println("city = " + city);
+        if (files != null && files.length > 0) {
+            for (MultipartFile file : files) {
+                System.out.println("file.getOriginalFilename() = " + file.getOriginalFilename());
+                System.out.println("file.getSize() = " + file.getSize());
+            }
+        }
+        return null;
+    }
 }
