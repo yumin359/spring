@@ -1,5 +1,7 @@
 package com.example.spring.controller;
 
+import com.example.spring.dto.MyBean311;
+import com.example.spring.dto.MyBean312;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +52,38 @@ public class Controller31 {
         System.out.println("city = " + city);
         if (files != null && files.length > 0) {
             for (MultipartFile file : files) {
+                System.out.println("file.getOriginalFilename() = " + file.getOriginalFilename());
+                System.out.println("file.getSize() = " + file.getSize());
+            }
+        }
+        return null;
+    }
+
+    @PostMapping("sub4")
+    public String sub4(MyBean311 dto) {
+        System.out.println("dto.getId() = " + dto.getId());
+        System.out.println("dto.getAddress() = " + dto.getAddress());
+        System.out.println("dto.getUserName() = " + dto.getUserName());
+        MultipartFile[] uploadFiles = dto.getUploadFiles();
+        if (uploadFiles != null && uploadFiles.length > 0) {
+            for (MultipartFile file : uploadFiles) {
+                System.out.println("file.getOriginalFilename() = " + file.getOriginalFilename());
+                System.out.println("file.getSize() = " + file.getSize());
+            }
+        }
+        return null;
+    }
+
+    // 연습 : post /api/main31/sub5의 요청을 다루는 메소드 만들기
+    // request parameters 는 dto(MyBean312) 받기
+    @PostMapping("sub5")
+    public String sub5(MyBean312 dto) {
+        System.out.println("dto.getScore() = " + dto.getScore());
+        System.out.println("dto.getClassName() = " + dto.getClassName());
+        System.out.println("dto.getLocation() = " + dto.getLocation());
+        MultipartFile[] uploadFiles = dto.getUploads();
+        if (uploadFiles != null && uploadFiles.length > 0) {
+            for (MultipartFile file : uploadFiles) {
                 System.out.println("file.getOriginalFilename() = " + file.getOriginalFilename());
                 System.out.println("file.getSize() = " + file.getSize());
             }
